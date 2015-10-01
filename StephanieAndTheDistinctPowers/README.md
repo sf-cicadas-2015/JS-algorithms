@@ -10,8 +10,8 @@ Question: How many distinct powers are there among all the powers in matrix
 
 
 #explain the problem better:
-by distinct power we mean numbers that are uniqu. (if you called .uniq! on
-the array of all of them in ruby you'd get the answer) such as 2^4 == 4^4 == 16,
+by distinct power we mean numbers that are unique. (if you called .uniq! on
+the array of all of them in ruby you'd get the answer) such as 2^4 == 4^2 == 16,
 so 16 would only be counted once.
 
 
