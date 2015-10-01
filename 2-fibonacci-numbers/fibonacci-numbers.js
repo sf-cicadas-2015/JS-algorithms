@@ -8,8 +8,32 @@
 
 
 // Pseudocode
-// Using the first two integers of the Fibonacci sequence, build the sequence as an array
-// Stop adding to the array once the final element is greater than 4,000,000
-// Using an accumulator, check each Fibonacci number and add all the evens together
+// Build a function that renders the Fibonacci sequence up to a certain length.
+// Run the sequence through a loop to test for even elements, excluding all values greater than 4,000,000.
+// Using an accumulator, sum all even Fibonaccis together.
+
+function fibonacciSumToFourMil() {
+  var fib = [0, 1], sum = 0;
+  for (var i = 0; i < 32; i++) {
+  fib.push(fib[i + 1] + fib[i]);
+  };
+  for (var i = 2; i < fib.length; i++) {
+    if (fib[i] % 2 === 0) {
+      // console.log("test");
+      sum += fib[i];
+      // console.log("Fib sequence number: " + fib[i]);
+      // console.log("Sum: " + sum);
+    };
+  };
+  return sum;
+};
+
+console.log(fibonacciSumToFourMil());
+
+// should print 4613732
 
 
+
+
+// Issues
+// A simple error that made this problem a lot more tedious was that I kept using commas in my numbers. Don't do that. It's really easy to overlook and renders the program useless.
