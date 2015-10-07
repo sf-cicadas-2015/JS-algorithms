@@ -24,17 +24,21 @@
 function primes(integer) {
   primes = [1];
   var limit = Math.floor(Math.sqrt(integer));
-  if (integer % 2 !== 0) {
-    var counter = 3;
+  console.log(limit);
+  if (integer % 2 === 0) {
+    primes.push(2);
+    console.log("Y O U  S H O U L D N ' T  S E E  M E");
+  } else {
+    counter = 3;
     while (primes[primes.length - 1] <= limit) {
       if (integer % counter === 0) {
         primes.push(counter);
       };
       counter += 2
     };
+    primes.pop();
     return primes;
   };
-  console.log("Y O U  S H O U L D N ' T  S E E  M E");
 };
 
 
