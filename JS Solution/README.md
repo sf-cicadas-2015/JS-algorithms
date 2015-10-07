@@ -13,5 +13,5 @@ for (var i = 0; i < myString.length; i++) {
 }
 myString = myString.join('')
 console.log(myString)
-// prints "elloh"
+// prints "olleh"
 ```
