@@ -3,72 +3,48 @@
 // What is the largest prime factor of the number 600851475143 ?
 
 
-// Define three functions: one that returns an array of factors of an input integer, one to return the prime numbers of an array of integers, and one to return the largest value in an array of numbers.
+// Write a function that finds the prime numbers up to the square root of input.
+// Write a function that returns the factors of an integer, taking an array and the integer as input.
 
-// Factor function accepts an argument, which should be an integer, and returns an array
-  // Store the floored square root of the integer to set the max value for the array
-  // Create an empty array called factors
-  // Start a for loop with the counter set to 2 while the counter is less than/eql to the floored sqrt
-    // If the input is divisible by the counter, check the counter against the factors array
-      // If a number in the factors array is not a factor of the counter being checked
-        // Insert it in the factor array
-      // End conditional
-    // End conditional
-  // End loop
-  // Return array
-// End function
-
-// Primes function accepts an array of integers as its argument, and returns an array of prime numbers
-  // Create an empty array called primes
-  // If the first element of the array is 2
-    // Do stuff... handle later because test case is odd
-  // Else
-    // Store first element into primes array
-    // Loop through input array starting at index 1
-      // Loop through prime factors array starting at index 0
-        // If input array element is evenly divisible by an integer in the prime array
-          // Do nothing
-        // Else
-          // Add input element to primes array
-        //
+// PRIMES function accepts an integer as input
+  // Name an empty array PRIMES
+  // Set the floored square root of the input to variable LIMIT
+  // (because our case is odd) If input is odd
+    // Counter at 3
+    // While length of PRIMES is 0
+      // If counter is a factor of input
+        // Add it to PRIMES array
       //
     //
-  //
-// end primes function
+  // (needs a case for even input) end for now
+// end PRIMES
 
 
-function factors(integer) {
-  factors = [];
+
+function primes(integer) {
+  primes = [1];
   var limit = Math.floor(Math.sqrt(integer));
-  console.log(limit);
-  if (integer % 2 === 0) {
-    factors.push(2);
-    console.log("This test should not print.");
-  } else {
-    // from counter = 3 up to the limit, loop and add 2 to the counter each time
-      // if the counter modulo integer is zero
-        //  add it to the factors array
-      // end conditional
-    // end loop
-    for(var i=3; i <= limit; i+=2)
-      if(integer % i === 0) {
-        console.log("This test should print");
-        factors.push(i);
+  if (integer % 2 !== 0) {
+    var counter = 3;
+    while (primes[primes.length - 1] <= limit) {
+      if (integer % counter === 0) {
+        primes.push(counter);
       };
-    console.log("This test should print.");
-    return factors;
+      counter += 2
+    };
+    return primes;
   };
+  console.log("Y O U  S H O U L D N ' T  S E E  M E");
 };
 
 
-function primes(integers) {
-  console.log("This test should print.");
 
+function factors(primes, integer) {
+  console.log("Test");
+  console.log(primes);
+  console.log(integer);
 };
 
 
-console.log("Testing factors function...");
-var factors = factors(13195);
-console.log(factors);
-console.log("Testing primes function...");
-primes(factors);
+var primes = primes(13195);
+factors(primes, 13195);
