@@ -3,52 +3,53 @@
 // What is the largest prime factor of the number 600851475143 ?
 
 
-// Write a function that finds the prime numbers up to the square root of input.
-// Write a function that returns the factors of an integer, taking an array and the integer as input.
-
 // PRIMES function accepts an integer as input
-  // Name an empty array PRIMES
+  // Have two arrays, one empty, one with a beginning case 1 (always a factor)
   // Set the floored square root of the input to variable LIMIT
   // (because our case is odd) If input is odd
     // Counter at 3
-    // While length of PRIMES is 0
+    // While the last integer of our test number is less than or equal to the limit
       // If counter is a factor of input
-        // Add it to PRIMES array
-      //
-    //
-  // (needs a case for even input) end for now
+        // Add it to test numbers array
+      // Increase counter by 2
+    // end loop
+    // take off first and last elements of array
+  // end conditional
+  // if input is even
+    // add two to beginning of array
+  // end conditional
 // end PRIMES
 
 
 
-function primes(integer) {
-  primes = [1];
+function largestPrime(integer) {
+  if (integer < 1) {
+    console.log("G E T  O U T")
+  }
+  testNumbers = [1]; primes = [];
   var limit = Math.floor(Math.sqrt(integer));
   console.log(limit);
   if (integer % 2 === 0) {
-    primes.push(2);
+    testNumbers.push(2);
     console.log("Y O U  S H O U L D N ' T  S E E  M E");
   } else {
     counter = 3;
-    while (primes[primes.length - 1] <= limit) {
+    while (testNumbers[testNumbers.length - 1] <= limit) {
       if (integer % counter === 0) {
-        primes.push(counter);
+        testNumbers.push(counter);
       };
       counter += 2
     };
-    primes.pop();
-    return primes;
+    testNumbers.pop();
+    testNumbers.shift();
   };
+  primes.push(testNumbers[0]);
+
+  console.log(testNumbers);
+  return primes;
 };
 
 
 
-function factors(primes, integer) {
-  console.log("Test");
-  console.log(primes);
-  console.log(integer);
-};
-
-
-var primes = primes(13195);
-factors(primes, 13195);
+console.log(largestPrime(13195));
+console.log(largestPrime(600851475143));
