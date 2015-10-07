@@ -47,30 +47,35 @@ MarkovChain.prototype.generateString = function() {
   while (currentWord != "undefined") {
     var continuations = this.chainStorage[currentWord].continuations;
     var randomValidLocation = Math.floor(Math.random() * Object.keys(continuations).length);
-    var firstContinuation = Object.keys(continuations)[randomValidLocation];
+    var nextContinuation = Object.keys(continuations)[randomValidLocation];
 
     // console.log(firstContinuation);
-    fullSentence.push(firstContinuation);
-    currentWord = firstContinuation;
+    if (nextContinuation != "undefined") {
+      fullSentence.push(nextContinuation);
+    }
+
+    currentWord = nextContinuation;
   }
 
   return fullSentence.join(" ");
 }
 
 var chain = new MarkovChain;
-chain.constructChain("how is the weather in the city today");
-chain.constructChain("i wonder who will win the game of baseball");
-chain.constructChain("how about a game of hopscotch in the park");
-chain.constructChain("only you can eat the cereal in the bowl");
-chain.constructChain("what can you do today to make the world a better place");
-chain.constructChain("how many books have you read this year");
-chain.constructChain("do you ever wonder where all the baby pigeons are");
-chain.constructChain("what made the ocean so blue back in the day");
-chain.constructChain("i hate to see you all go to the carnival");
+chain.constructChain("Poetry as an art form may predate literacy");
+chain.constructChain("Epic poetry, from the Indian Vedas (1700–1200 BC) and Zoroaster's Gathas to the Odyssey (800–675 BC), appears to have been composed in poetic form to aid memorization and oral transmission, in prehistoric and ancient societies");
+chain.constructChain("Other forms of poetry developed directly from folk songs. The earliest entries in the ancient compilation Shijing, were initially lyrics, preceding later entries intended to be read");
+chain.constructChain("The oldest surviving epic poem is the Epic of Gilgamesh, from the 3rd millennium BC in Sumer (in Mesopotamia, now Iraq), which was written in cuneiform script on clay tablets and, later, papyrus");
+chain.constructChain("The oldest love poem is only slightly younger sitting among Sumerian documents such as a court verdict from 2030 B.C.");
+chain.constructChain("Other ancient epic poetry includes the Greek epics Iliad and Odyssey, the Old Iranian books the Gathic Avesta and Yasna, the Roman national epic, Virgil's Aeneid, and the Indian epics Ramayana and Mahabharata");
+chain.constructChain("The efforts of ancient thinkers to determine what makes poetry distinctive as a form, and what distinguishes good poetry from bad, resulted in 'poetics'—the study of the aesthetics of poetry");
+chain.constructChain("Some ancient poetic traditions; such as, contextually, Classical Chinese poetry in the case of the Shijing (Classic of Poetry), which records the development of poetic canons with ritual and aesthetic importance");
+chain.constructChain("More recently, thinkers have struggled to find a definition that could encompass formal differences as great as those between Chaucer's Canterbury Tales and Matsuo Bashō's Oku no Hosomichi, as well as differences in context spanning Tanakh religious poetry, love poetry, and rap");
 
 // console.log("Chain storage:");
 // console.log(chain.chainStorage);
 // console.log("Starter Words:");
 // console.log(chain.starterWords);
 
-console.log("Generated string: " + chain.generateString());
+for (var i = 0; i < 50; i++) {
+  console.log("Generated string: " + chain.generateString() + "\n");
+}
