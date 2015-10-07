@@ -46,7 +46,8 @@ MarkovChain.prototype.generateString = function() {
 
   while (currentWord != "undefined") {
     var continuations = this.chainStorage[currentWord].continuations;
-    var firstContinuation = Object.keys(continuations)[0];
+    var randomValidLocation = Math.floor(Math.random() * Object.keys(continuations).length);
+    var firstContinuation = Object.keys(continuations)[randomValidLocation];
 
     // console.log(firstContinuation);
     fullSentence.push(firstContinuation);
@@ -57,10 +58,15 @@ MarkovChain.prototype.generateString = function() {
 }
 
 var chain = new MarkovChain;
-chain.constructChain("how is the weather today");
-chain.constructChain("i wonder who will win the game");
-chain.constructChain("how about a game of hopscotch");
-chain.constructChain("only you can eat the cereal");
+chain.constructChain("how is the weather in the city today");
+chain.constructChain("i wonder who will win the game of baseball");
+chain.constructChain("how about a game of hopscotch in the park");
+chain.constructChain("only you can eat the cereal in the bowl");
+chain.constructChain("what can you do today to make the world a better place");
+chain.constructChain("how many books have you read this year");
+chain.constructChain("do you ever wonder where all the baby pigeons are");
+chain.constructChain("what made the ocean so blue back in the day");
+chain.constructChain("i hate to see you all go to the carnival");
 
 // console.log("Chain storage:");
 // console.log(chain.chainStorage);
