@@ -47,6 +47,9 @@ function largestPrime(num){
   return primes[primes.length -1];
 };
 
-console.log(largestPrime(13195))
-console.log(largestPrime(240))
+// Test Codes
+console.log(largestPrime(13195) === 29)
+console.log(largestPrime(240) === 5)
+
+// Final Solution
 console.log(largestPrime(600851475143))
